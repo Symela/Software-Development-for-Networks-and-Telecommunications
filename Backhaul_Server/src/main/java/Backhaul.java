@@ -16,9 +16,7 @@ import java.util.List;
 public class Backhaul {
 
     private static int portNumber = 8000;
-    //    private static final String OUT_CSV_PATH = "/home/symela/Desktop/project/Software_Developement_for_Networks_2018-2019_Di/Backhaul_Server/out_file.csv";
     private static final String OUT_CSV_PATH = "./out_file.csv";
-//    private static final String OUT_CSV_PATH = "C:/Users/Johnman97/Documents/Software_Developement_for_Network_and_Communications/Software_Developement_for_Networks_2018-2019_Di/Backhaul_Server/out_file.csv";
 
     public static void main(String[] args) throws IOException {
 
@@ -35,8 +33,8 @@ public class Backhaul {
 
         try {
 
-
-            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/sys?useLegacyDatetimeCode=false&serverTimezone=UTC", "root", "kingdomhearts97");
+	    //TODO: username and password for access in database
+            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/sys?useLegacyDatetimeCode=false&serverTimezone=UTC", <username>, <password>);
             if (conn != null) {
                 System.out.println("You made it, take control your database now!");
                 System.out.println(conn);
@@ -140,8 +138,6 @@ public class Backhaul {
             System.out.println("Accepted connection : " + sock);
             // sendfile
             File myFile = new File("./out_file.csv");
-//            File myFile = new File("/home/sokb/IdeaProjects/Training_Set_Creation/out_file.csv");
-            //System.out.println("length is: " + (int)myFile.length() );
             byte[] mybytearray = new byte[(int) myFile.length()];
             FileInputStream fis = new FileInputStream(myFile);
             BufferedInputStream bis = new BufferedInputStream(fis);

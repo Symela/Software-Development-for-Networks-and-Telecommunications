@@ -37,7 +37,7 @@ public class MamaThread implements MqttCallback, Runnable {
     private void EdgeTopics() {
         try {
             //TODO: 3. MQTT Broker IP
-            String mqttBrokerIP = "192.168.4.164:1883";
+            String mqttBrokerIP = <MQTT IP> + ":1883";
 
             mqttCl = new MqttClient("tcp://" + mqttBrokerIP, "mob1");
             mqttCl.connect();
@@ -101,7 +101,6 @@ public class MamaThread implements MqttCallback, Runnable {
                 mqttClient.close();
             }
         }
-//        System.out.println(mqttMessage);
     }
 
     public void deliveryComplete(IMqttDeliveryToken iMqttDeliveryToken) {
@@ -113,18 +112,14 @@ public class MamaThread implements MqttCallback, Runnable {
 
         String[] lines = usingBufferedReader(messageToSplit);
 
-        //System.out.println(Arrays.toString(lines));
         String result;
         Experiment exp = CreateTestCSV(lines);
-//        System.out.println("before knn ");
         if(lines[7] != null){
             result = knn_classifier(Edge.exp_array, exp, Edge.labels, Edge.K);
         }
         else{
             result = "EyesOpened";
         }
-
-//        System.out.println("result of knn is " + result);
 
         System.out.println("Classified by knn as: " + result);
         System.out.println("Actual class is: " + exp.get_name());
@@ -263,7 +258,6 @@ public class MamaThread implements MqttCallback, Runnable {
 
         while ((l[j] != null) && (j < 7)) {
             stringas[j] = l[j];
-//            System.out.println("line" + "(" + j + ")=" + stringas[j]);
             j++;
         }
 
@@ -275,9 +269,6 @@ public class MamaThread implements MqttCallback, Runnable {
             stringas[7] = line8;    //stringas[7] is name and stringas[8] is feature vector
             j++;
         }
-//        System.out.println("Read length: " + length);
-//        System.out.println("line" + "(7)=" + stringas[7]);
-
 
         return stringas;
     }
@@ -300,14 +291,11 @@ public class MamaThread implements MqttCallback, Runnable {
             if (training_set[i].get_name().equals("EyesOpened")) {
                 euc_dist[i][0] = 1.0;
             } else {
-                //System.out.println("in if EyesClosed");
                 euc_dist[i][0] = 0.0;
             }
             euc_dist[i][1] = calculateDistance(training_set[i].get_feature_vector(), test.get_feature_vector());
-            //System.out.println(euc_dist[i][1]);
 
         }
-        //System.out.println("after for");
         double[] I = new double[K]; // set I that contains the k nearest distances
         // sorting by 2nd column (distance)
         Arrays.sort(euc_dist, new java.util.Comparator<double[]>() {
@@ -326,7 +314,6 @@ public class MamaThread implements MqttCallback, Runnable {
             if (euc_dist[l][1] == I[k - 1]) {     // if is duplicate
                 continue;
             }
-            //System.out.println("INSIDE!!!!!");
             I[k] = euc_dist[l][1];
             if (euc_dist[l][0] == 1.0) {
                 c_opened++;
@@ -339,13 +326,10 @@ public class MamaThread implements MqttCallback, Runnable {
                 closed_Weight = w_closed * c_closed;
             }
             k++;
-            //System.out.println("k is: " + k);
             if (k >= K) {
                 break;
             }
         }
-        //System.out.println("OUTSIDE!!!!!!");
-        //System.out.println(Arrays.toString(I));
 
         if (opened_Weight > closed_Weight) {
             return labels[0];
@@ -382,7 +366,6 @@ public class MamaThread implements MqttCallback, Runnable {
             CSVReader csvReader = new CSVReader(reader);
 
             List<String[]> records = csvReader.readAll();   //Stores file in a list of String arrays
-            //System.out.println("readall!!!!!");
             Iterator<String[]> iterator = records.iterator();
             String[] tempStringArray;
 
@@ -403,7 +386,7 @@ public class MamaThread implements MqttCallback, Runnable {
                 counter++;
 
             }
-            //System.out.println("a good place");
+
             //calculate Entropy and create feature vector
             for (int i = 0; i < 14; i++) {
                 feature_vector[i] = Entropy.calculateEntropy(input_vectors[i]);

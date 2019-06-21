@@ -88,6 +88,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
 
     // mqtt connection
     //TODO: 1. change topics
+	// each device must have different topics: topicStr and topicStr1.
     public static String topicStr = "mobile2";
     public static String topicStr1 = "edge2";
     @SuppressLint("StaticFieldLeak")
@@ -147,10 +148,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
     private static File[] files;
     private static File csvFile;
     //TODO: 2. choose the correct directory path for csv files
-    // Vaggelis' phone
-    private static String CSV_DIRECTORY_PATH = Environment.getExternalStorageDirectory() + "/Download/Ανάπτυξη Λογισμικού για Δίκτυα & Τηλεπικοινωνίες- Πρώτο Παραδοτέο - Assignment - 2018-2019/Test_Set/";
-    // Symela's phone
-//    private static String CSV_DIRECTORY_PATH = "/storage/885F-1AFB/Download/Ανάπτυξη-Λογισμικού-για-Δίκτυα-Τηλεπικοινωνίες-Πρώτο-Παραδοτέο-Assignment-2018-2019/Test_Set/";
+    private static String CSV_DIRECTORY_PATH = <Path where Test set is saved on your android device>;
 
 
     @Override
@@ -170,7 +168,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
 
         final String clientId = getMacAddr();
         //TODO: 3. change MQTT Broker IP
-        String serverUri = "tcp://172.16.10.169:1883";
+        String serverUri = "tcp://" + <MQTT IP> + ":1883";
         Log.i("server URI", serverUri);
         client = new MqttAndroidClient(context, serverUri, clientId);
 

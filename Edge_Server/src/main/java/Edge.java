@@ -18,7 +18,7 @@ public class Edge {
     static int K = 9;  //number of neighbours
 
     //TODO: 1. change backhaul IP!
-    public static String hostname = "192.168.4.164";
+    public static String hostname = <IP of Backhaul Server>;
     public static int portNumber = 8000;
 
 
