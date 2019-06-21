@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">DiT 404</string>
+    <string name="main_name">ΘΑ ΓΙΝΩ ΔΥΝΑΜΙΤΗΣ!</string>
+    <string name="settings_name">Ρυθμίσεις</string>
+    <string name="ok">Φυσικά!</string>
+    <string name="cancel">Όχι&#8230;</string>
+    <string name="settings_frequency_title">Συχνότητα Αποστολής Μηνυμάτων</string>
+    <string name="radio_group_title">Ανά:</string>
+    <string name="default_frequency">10s - Default</string>
+    <string name="frequency_5s">5s</string>
+    <string name="frequency_20s">20s</string>
+    <string name="connect">Connect</string>
+    <string name="disconnect">Disconnect</string>
+    <string name="safe">ALL GOOD.</string>
+    <string name="wake_up">WAKE UP!!!</string>
+    <string name="change_lanes">WATCH OUT!!!</string>
+</resources>

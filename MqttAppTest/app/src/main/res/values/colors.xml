@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#2e779f</color>
+    <color name="colorPrimaryDark">#315083</color>
+    <color name="colorAccent">#a01017</color>
+    <color name="disconnect">#540415</color>
+    <color name="white">#ffffff</color>
+    <color name="connect">#7eb2a0</color>
+    <color name="background">#e9f2f8</color>
+    <color name="disabled">#c9dfef</color>
+    <color name="disconnect_text_disabled">#999b9d</color>
+    <color name="warning">#F2740B</color>
+    <color name="no_danger">#118d00</color>
+</resources>
