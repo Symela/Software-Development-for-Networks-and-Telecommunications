@@ -8,7 +8,7 @@ This is a project is a network developed to avoid car collisions/accidents on a 
 * [Vaggelis Tzironis](https://github.com/TorenIvan)
 * [Sokrates Beis](https://github.com/sokb)
 * [John Manolakis](https://github.com/Johnman97)
-## Project Structure:
+## Description:
 ### Android Devices
 The devices collect electroencephalographic (EEG) data from the sensors attached to the drivers, in order to detect if the drivers fall asleep during driving. They communicate with the Edge Server using the MQTT protocol.
 ### Edge Server
@@ -18,4 +18,4 @@ The Backhaul Server is responsible for the training of the model, which will be 
 ### MySQL Database
 The Database is used to keep a status history of the Android devices
 
-***For more information, please read the Readme and Readme2 pdf files included.***
+***For more information on this project, please read the Readme and Readme2 pdf files included.***
